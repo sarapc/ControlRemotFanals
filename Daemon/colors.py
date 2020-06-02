@@ -4,7 +4,7 @@ import paho.mqtt.client as mqtt
 
 # Desem les dades de la connexio
 def desaCon(msg):
-	jsonVar = json.loads(msg.payload)
+	jsonVar = json.loads(msg)
 	mycursor = mydb.cursor()
 	sql = """DELETE FROM connection"""
 	mycursor.execute(sql)
@@ -17,9 +17,9 @@ def desaCon(msg):
 	mydb.commit()
 	mycursor.close()
 
-# desemles dades de la configuracio per als fanals
+# desem les dades de la configuracio per als fanals
 def desaConf(msg):
-	jsonVar = json.loads(msg.payload)
+	jsonVar = json.loads(msg)
 	mycursor = mydb.cursor()
 	sql = """DELETE FROM conf"""
 	mycursor.execute(sql)
@@ -34,7 +34,7 @@ def desaConf(msg):
 
 #desem les dades de la pl
 def desaPl(msg):
-	jsonVar = json.loads(msg.payload)
+	jsonVar = json.loads(msg)
 	mycursor = mydb.cursor()
 	sql = """INSERT INTO pl(plName, plNum) VALUES (%s, %s)"""
 	val = (jsonVar["nomPl"], jsonVar["numPl"])
@@ -44,7 +44,7 @@ def desaPl(msg):
 
 #desem les posicions dels fanals a la pantalla
 def desaPos(msg):
-	jsonVar = json.loads(msg.payload)
+	jsonVar = json.loads(msg)
 	mycursor = mydb.cursor()
 	sql = """INSERT INTO posicio(posName, posX, posY, plName) VALUES (%s, %s, %s, %s)"""
 	val = (jsonVar["nomPos"], jsonVar["posX"], jsonVar["posY"], jsonVar["nomPl"])
@@ -54,7 +54,7 @@ def desaPos(msg):
 
 #desem els fanals
 def desaFan(msg):
-	jsonVar = json.loads(msg.payload)
+	jsonVar = json.loads(msg)
 	mycursor = mydb.cursor()
 	sql = """INSERT INTO fanal(alias, mac, plName, tema) VALUES (%s, %s, %s, %s)"""
 	val = (jsonVar["alias"], jsonVar["mac"], jsonVar["nomPl"], jsonVar["tema"])
@@ -64,7 +64,7 @@ def desaFan(msg):
 
 #desem els grups
 def desaGr(msg):
-	jsonVar = json.loads(msg.payload)
+	jsonVar = json.loads(msg)
 	mycursor = mydb.cursor()
 	sql = """INSERT INTO grup(alias, nomConf, nomGrup, plName) VALUES (%s, %s, %s, %s)"""
 	val = (jsonVar["alias"], jsonVar["nomConf"], jsonVar["nomGr"], jsonVar["nomPl"])
@@ -74,7 +74,8 @@ def desaGr(msg):
 
 #carrega de les dades inicial
 def carregaDades(msg):
-	if msg.payload == "Con":
+	if msg == "Con":
+		print("recupero les dades de connexio")
 		mycursor = mydb.cursor()
 		sql = """SELECT broker, port FROM connection"""
 		mycursor.execute(sql)
@@ -84,7 +85,7 @@ def carregaDades(msg):
 		x = '{"broker": "' + str(llista[0]) + '", "port": "' + str(llista[1]) + '"}' 
 		print(x)
 		client.publish("/configuracio/dadesCon",x)
-	elif msg.payload == "LlistaPl":
+	elif msg == "LlistaPl":
 		mycursor = mydb.cursor()
 		sql = """SELECT DISTINCT plName FROM pl"""
 		mycursor.execute(sql)
@@ -95,18 +96,7 @@ def carregaDades(msg):
 			client.publish("/configuracio/dadesLlistaPl",x)
 			print(x)
 		mycursor.close()
-	elif msg.payload == "LlistaGr":
-		mycursor = mydb.cursor()
-		sql = """SELECT DISTINCT nomConf FROM grup"""
-		mycursor.execute(sql)
-		resultat = mycursor.fetchall()
-		for i in resultat:
-			llista = [i[0]]
-			x ='{"nomGr": "' + str(llista[0]) + '"}'
-			client.publish("/configuracio/dadesLlistaGr",x)
-			print(x)
-		mycursor.close()
-	elif msg.payload == "Conf":
+	elif msg == "Conf":
 		mycursor = mydb.cursor()
 		sql = """SELECT tema, missatge FROM conf"""
 		mycursor.execute(sql)
@@ -114,17 +104,18 @@ def carregaDades(msg):
 		llista = [resultat[0][0], resultat[0][1]]
 		mycursor.close()
 		x = '{ "tema": "' + str(llista[0]) + '", "mis": "' + str(llista[1]) + '"}' 
-		client.publish("/configuracio/dadesConf",x)
+		client.publish("/configuracio/dadesConfF",x)
 		pass	
 
 #carrega de la pl seleccionada
 def carregaPl(msg):
 	mycursor = mydb.cursor()
-	jsonVar = json.loads(msg.payload)
+	jsonVar = json.loads(msg)
 	sql = """SELECT * FROM pl WHERE plName = %s"""
-	val = (str(jsonVar[u'nomPl']),)
+	val = (jsonVar["nomPl"], )
 	mycursor.execute(sql, val)
 	resultat = mycursor.fetchall()
+	print(resultat)
 	llista = [resultat[0][0], resultat[0][1]]
 	mycursor.close()
 	x = '{"nomPl": "' + str(llista[0]) + '", "numPl": "' + str(llista[1]) + '"}' 
@@ -132,7 +123,7 @@ def carregaPl(msg):
 	client.publish("/configuracio/dadesPl",x)	
 	mycursor = mydb.cursor()
 	sql = """SELECT posName, posX, posY FROM posicio WHERE plName = %s"""
-	val = (str(jsonVar[u'nomPl']),)
+	val = (jsonVar["nomPl"],)
 	mycursor.execute(sql, val)
 	resultat = mycursor.fetchall()
 	for i in resultat:
@@ -143,7 +134,7 @@ def carregaPl(msg):
 	mycursor.close()
 	mycursor = mydb.cursor()
 	sql = """SELECT alias, mac, tema FROM fanal WHERE plName = %s"""
-	val = (str(jsonVar[u'nomPl']),)
+	val = (jsonVar["nomPl"],)
 	mycursor.execute(sql, val)
 	resultat = mycursor.fetchall()
 	for i in resultat:
@@ -152,13 +143,38 @@ def carregaPl(msg):
 		client.publish("/configuracio/dadesFan",x)
 		print(x)
 	mycursor.close()
+	mycursor = mydb.cursor()
+	sql = """SELECT DISTINCT nomConf FROM grup WHERE plName = %s"""
+	val = (jsonVar["nomPl"],)
+	mycursor.execute(sql, val)
+	resultat = mycursor.fetchall()
+	for i in resultat:
+		llista = [i[0]]
+		x ='{"nomConf": "' + str(llista[0]) + '"}'
+		client.publish("/configuracio/dadesConf",x)
+		print(x)
+	mycursor.close()
+
+#carrega llista grups
+def carregaLlistaGrups(msg):
+	mycursor = mydb.cursor()
+	sql = """SELECT DISTINCT nomConf FROM grup WHERE plName=%s"""
+	val = (msg, )
+	mycursor.execute(sql, val)
+	resultat = mycursor.fetchall()
+	for i in resultat:
+		llista = [i[0]]
+		x ='{"nomGr": "' + str(llista[0]) + '"}'
+		client.publish("/configuracio/dadesLlistaGr",x)
+		print(x)
+	mycursor.close()
 
 #carrega del grup seleccionat
 def carregaGr(msg):
 	mycursor = mydb.cursor()
-	jsonVar = json.loads(msg.payload)
+	jsonVar = json.loads(msg)
 	sql = """SELECT DISTINCT nomGrup FROM grup WHERE plName = %s AND nomConf = %s"""
-	val = (str(jsonVar[u'nomPl']),str(jsonVar[u'nomConf']))
+	val = (jsonVar["nomPl"], jsonVar["nomConf"])
 	mycursor.execute(sql, val)
 	resultat = mycursor.fetchall()
 	for i in resultat:
@@ -169,7 +185,7 @@ def carregaGr(msg):
 	mycursor.close()
 	mycursor = mydb.cursor()
 	sql = """SELECT alias, nomGrup FROM grup WHERE plName = %s AND nomConf = %s"""
-	val = (str(jsonVar[u'nomPl']),str(jsonVar[u'nomConf']))
+	val = (jsonVar["nomPl"], jsonVar["nomConf"])
 	mycursor.execute(sql, val)
 	resultat = mycursor.fetchall()
 	for i in resultat:
@@ -178,34 +194,33 @@ def carregaGr(msg):
 		client.publish("/configuracio/dadesGr",x)
 		print(x)
 	mycursor.close()
-
+			
 #funcio que gestiona l'arribada de missatges
 def on_message(client, userdata, msg):
 	print(msg.topic)
-	print(msg.payload)
+	print(msg.payload.decode("utf-8"))
+	dades = msg.payload.decode("utf-8")
 	if msg.topic == "/configuracio/desaCon":
-		desaCon(msg)
-	if msg.topic == "/configuracio/desaConf":
-		desaConf(msg)
+		desaCon(dades)
+	if msg.topic == "/configuracio/desaConfF":
+		desaConf(dades)
 	elif msg.topic == "/configuracio/desaPl":
-		desaPl(msg)
+		desaPl(dades)
 	elif msg.topic == "/configuracio/desaPos":
-		desaPos(msg)
+		desaPos(dades)
 	elif msg.topic == "/configuracio/desaFan":
-		desaFan(msg)
+		desaFan(dades)
 	elif msg.topic == "/configuracio/desaGr":
-		desaGr(msg)
+		desaGr(dades)
 	elif msg.topic == "/configuracio/carrega":
-		carregaDades(msg)
+		carregaDades(dades)
+	elif msg.topic == "/configuracio/carregaLlistaGr":
+		carregaLlistaGrups(dades)
 	elif msg.topic == "/configuracio/carregaPl":
-		carregaPl(msg)
-	elif msg.topic == "/configuracio/carregaGrNum":
-		carregaGrNum(msg)
+		carregaPl(dades)
 	elif msg.topic == "/configuracio/carregaGr":
-		carregaGr(msg)
-	elif msg.topic == "/configuracio/carregaGrFan":
-		carregaGrFan(msg)
-
+		carregaGr(dades)
+    
 #connexio amb la base de dades  
 mydb = mysql.connector.connect(user='ELTEUUSUARI', password='ELTEUPASSWORD', host='127.0.0.1', database='NOMBASEDEDADES', port=3306)
 
