@@ -1,0 +1,952 @@
+[
+    {
+        "id": "2353176a.7c52e8",
+        "type": "tab",
+        "label": "Projecte: Aplicació contra Node-RED",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6bbd3624.4495f8",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/configuracio/envia",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "48b1c9f4.f31118",
+                "f23b522b.99a2c",
+                "4274b65c.d73628",
+                "12d7763.c46898a",
+                "b2e16426.4b6a18",
+                "a38fe961.183458",
+                "c6d389af.b34558",
+                "f4915923.a58588",
+                "ff15419a.affad",
+                "14a355f6.a4d23a",
+                "936be732.4c88f8",
+                "64cdb212.01778c",
+                "ec1fdb70.ea05a8",
+                "cc6771cd.73062",
+                "6071a678.f75728",
+                "e143b9fa.f7be88"
+            ]
+        ]
+    },
+    {
+        "id": "fbfa37e0.e572a8",
+        "type": "mqtt out",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/configuracio/resposta",
+        "qos": "",
+        "retain": "",
+        "broker": "d262e888.8a7e58",
+        "x": 680,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1033f128.82b59f",
+        "type": "debug",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 710,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "48b1c9f4.f31118",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició1",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:AB\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "4274b65c.d73628",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició2",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:AC\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "f23b522b.99a2c",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició3",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:AD\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "12d7763.c46898a",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició4",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:AE\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 200,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "b2e16426.4b6a18",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició5",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:AF\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "a38fe961.183458",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició6",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A0\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 240,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "c6d389af.b34558",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició7",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A1\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "f4915923.a58588",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició8",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A2\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "ff15419a.affad",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició9",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A3\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 300,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "936be732.4c88f8",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició10",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A4\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 320,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "64cdb212.01778c",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició11",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A5\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 340,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "14a355f6.a4d23a",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició12",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A6\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 360,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "ec1fdb70.ea05a8",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició13",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A7\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 380,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "cc6771cd.73062",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició14",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A8\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "6071a678.f75728",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició15",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:A9\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 420,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "e143b9fa.f7be88",
+        "type": "function",
+        "z": "2353176a.7c52e8",
+        "name": "posició16",
+        "func": "if(msg.payload==\"mac\"){\nmsg.payload=\"00:25:08:55:2B:AA\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 440,
+        "wires": [
+            [
+                "1033f128.82b59f",
+                "fbfa37e0.e572a8"
+            ]
+        ]
+    },
+    {
+        "id": "3babfbc6.65abe4",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:AB",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 150,
+        "y": 500,
+        "wires": [
+            [
+                "ca8cf56f.138168",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "79502c9d.54c264",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:AC",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 150,
+        "y": 540,
+        "wires": [
+            [
+                "1de6a767.2ac069",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "c83ca602.42ef28",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:AD",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "989c156c.aef5a8",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "38161e81.4fe892",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:AE",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 150,
+        "y": 620,
+        "wires": [
+            [
+                "51bcd01.bd5f53",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "33ef0f88.57af2",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:AF",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 150,
+        "y": 660,
+        "wires": [
+            [
+                "617bf1fa.9752b",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "11faf8cc.c4f097",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A0",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            [
+                "7c70a682.a3bea8",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "1328788b.44ff37",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 150,
+        "y": 740,
+        "wires": [
+            [
+                "a57d0d0a.884e9",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "95ad632f.6a16a",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A3",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 510,
+        "y": 500,
+        "wires": [
+            [
+                "ceda0671.c100d8",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "575935a4.61818c",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A4",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 510,
+        "y": 540,
+        "wires": [
+            [
+                "ed5c80e1.df4e5",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "89cf6696.ecd378",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A5",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 510,
+        "y": 580,
+        "wires": [
+            [
+                "9dc1657c.f222b8",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "9e0eb10.cf8165",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A6",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 510,
+        "y": 620,
+        "wires": [
+            [
+                "5321786f.05e6f8",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "d0d6d7be.19a948",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A7",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 510,
+        "y": 660,
+        "wires": [
+            [
+                "9225dc71.fe8ef",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "964dfc9f.610b",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A8",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 510,
+        "y": 700,
+        "wires": [
+            [
+                "5512cf28.d7045",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "83d8898b.032af8",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A9",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 510,
+        "y": 740,
+        "wires": [
+            [
+                "492d8d1c.ecce04",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "143b7c04.47cc74",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:A2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 150,
+        "y": 780,
+        "wires": [
+            [
+                "53609d15.8753c4",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "f6487468.1b8378",
+        "type": "mqtt in",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "topic": "/00:25:08:55:2B:AA",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "d262e888.8a7e58",
+        "x": 510,
+        "y": 780,
+        "wires": [
+            [
+                "c2a985bd.6ae978",
+                "d1b86716.db0b08"
+            ]
+        ]
+    },
+    {
+        "id": "ca8cf56f.138168",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "916a237.d25ffe",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal1",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1de6a767.2ac069",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "916a237.d25ffe",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal2",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "989c156c.aef5a8",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "916a237.d25ffe",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal3",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "51bcd01.bd5f53",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "916a237.d25ffe",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal4",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "617bf1fa.9752b",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "916a237.d25ffe",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal5",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7c70a682.a3bea8",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "916a237.d25ffe",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal6",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "a57d0d0a.884e9",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "916a237.d25ffe",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal7",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "53609d15.8753c4",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "916a237.d25ffe",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal8",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ceda0671.c100d8",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "8567af88.dd53d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal9",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 690,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ed5c80e1.df4e5",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "8567af88.dd53d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal10",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "9dc1657c.f222b8",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "8567af88.dd53d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal11",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5321786f.05e6f8",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "8567af88.dd53d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal12",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "9225dc71.fe8ef",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "8567af88.dd53d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal13",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "5512cf28.d7045",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "8567af88.dd53d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal14",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "492d8d1c.ecce04",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "8567af88.dd53d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal15",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "c2a985bd.6ae978",
+        "type": "ui_text",
+        "z": "2353176a.7c52e8",
+        "group": "8567af88.dd53d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fanal16",
+        "format": "<font color={{msg.payload}} ><i class=\"fa fa-circle\" style=\"font-size:24px;\"></i></font>",
+        "layout": "row-spread",
+        "x": 700,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "d1b86716.db0b08",
+        "type": "debug",
+        "z": "2353176a.7c52e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 710,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "d262e888.8a7e58",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "916a237.d25ffe",
+        "type": "ui_group",
+        "z": "",
+        "name": "Fanals1",
+        "tab": "af16dca1.8a1fe",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8567af88.dd53d",
+        "type": "ui_group",
+        "z": "",
+        "name": "Fanals2",
+        "tab": "af16dca1.8a1fe",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "af16dca1.8a1fe",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Fanals",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

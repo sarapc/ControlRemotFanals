@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>ConfFanals.qml</file>
+        <file>ConfFanalsForm.ui.qml</file>
+        <file>Mapa.qml</file>
+        <file>MapaForm.ui.qml</file>
+        <file>Inici.qml</file>
+        <file>IniciForm.ui.qml</file>
+        <file>ConfGrups.qml</file>
+        <file>ConfGrupsForm.ui.qml</file>
+        <file>Connexio.qml</file>
+        <file>ConnexioForm.ui.qml</file>
+        <file>Colors.qml</file>
+        <file>ColorsForm.ui.qml</file>
+        <file>DadesFanals.qml</file>
+        <file>DadesFanalsForm.ui.qml</file>
+        <file>DadesGrups.qml</file>
+        <file>DadesGrupsForm.ui.qml</file>
+        <file>DadesPl.qml</file>
+        <file>DadesPlForm.ui.qml</file>
+        <file>CarregarPl.qml</file>
+        <file>CarregarPlForm.ui.qml</file>
+        <file>ConfPl.qml</file>
+        <file>ConfPlForm.ui.qml</file>
+        <file>CarregarFanals.qml</file>
+        <file>CarregarFanalsForm.ui.qml</file>
+        <file>CarregarGrups.qml</file>
+        <file>CarregarGrupsForm.ui.qml</file>
+        <file>SelecGrup.qml</file>
+        <file>SelecGrupForm.ui.qml</file>
+    </qresource>
+    <qresource prefix="/images"/>
+</RCC>
