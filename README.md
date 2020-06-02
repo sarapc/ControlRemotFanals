@@ -5,7 +5,7 @@ Resum
 Aquest projecte desenvolupa una solució IoT per a poder controlar remotament els fanals d’una plaça mitjançant una aplicació multiplataforma.
 Aquesta ens permetrà fer canvis en els colors de la il·luminació de la plaça fanal a fanal o configurant diverses agrupacions. 
 L’aplicació s’ha desenvolupat amb Qt i desa la informació en una base de dades MySQL. 
-La solució inclou també el desenvolupament de microprogramari amb Arduino IDE, per al maquinar al qual estaran connectats els leds dels fanals.
+La solució inclou també el desenvolupament de microprogramari amb Arduino IDE, per al maquinari al qual estaran connectats els leds dels fanals.
 
 
 Resumen
