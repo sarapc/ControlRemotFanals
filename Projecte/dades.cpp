@@ -1,5 +1,4 @@
 #include "dades.h"
-#include <QDebug>
 
 Dades::Dades()
 {
@@ -98,7 +97,6 @@ void Dades::carregaConfF(QString missatge){
     QJsonObject obj = doc.object();
     tema = obj["tema"].toString();
     mis = obj["mis"].toString();
-    qDebug() << "Conf i miss carregats";
 }
 
 void Dades::carregaLlistaPl(QString missatge){
@@ -122,14 +120,11 @@ void Dades::carregaLlistaGr(QString missatge){
     llistaGr.append(nomGr);
 }
 
-// Carrega una placa q has clickat de la llista.
-//
 void Dades::carregaPl(QString missatge){
     QJsonDocument doc = QJsonDocument::fromJson(missatge.toUtf8());
     QJsonObject obj = doc.object();
     QString nomPl = obj["nomPl"].toString();
     int numPl = obj["numPl"].toString().toInt();
-    qDebug() << "Numero de fanals a la placa: " + QString::number(numPl);
     pl.setNom(nomPl);
     pl.setNum(numPl);
 }
@@ -148,7 +143,6 @@ void Dades::carregaPosicio(QString missatge){
 }
 
 void Dades::carregaFanal(QString missatge){
-    qDebug() <<missatge;
     QJsonDocument doc = QJsonDocument::fromJson(missatge.toUtf8());
     QJsonObject obj = doc.object();
     QString alias = obj["alias"].toString();
@@ -178,7 +172,6 @@ void Dades::carregaGr(QString missatge){
 }
 
 void Dades::carregaGrup(QString missatge){
-    qDebug()<<missatge;
     QJsonDocument doc = QJsonDocument::fromJson(missatge.toUtf8());
     QJsonObject obj = doc.object();
     QString alias = obj["alias"].toString();
@@ -207,26 +200,12 @@ void Dades::carregaGrup(QString missatge){
         }
     }
 
-//    for(int i = 0; i<fanals.count(); i++){
-//        if(fanals[i].getAlias()==alias){
-//            for(int j=0; j<grups.count(); j++){
-//                if(grups[j].getNom()==nomGr){
-//                    grups[j].Gfanals.append(fanals[i]);
-//                }
-//            }
-//        }
-//    }
     int compt=0;
     for(int i = 0; i<grups.count(); i++){
         compt = compt + grups[i].Gfanals.count();
     }
     if(compt==pl.getNum()){
         emit(grupsComplets());
-        for (int i = 0; i < grups.count(); i++){
-            for (int j = 0; j < grups[i].Gfanals.count(); j++){
-                qDebug() << "Grup: "+QString::number(i+1)+ " Tema Fanal: "+grups[i].Gfanals[j].getTema();
-            }
-        }
     }
 }
 

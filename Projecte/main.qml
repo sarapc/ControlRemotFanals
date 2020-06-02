@@ -36,7 +36,7 @@ ApplicationWindow {
         }
         ToolButton {
             id: tbMenu
-            //visible: sV.currentItem.toString().startsWith("Inici")|| sV.currentItem.toString().startsWith("Connexio") ? false : true
+            visible: sV.currentItem.toString().startsWith("Inici")|| sV.currentItem.toString().startsWith("Connexio") ? false : true
             text: qsTr("⋮")
             onClicked: menu.open()
             height: parent.height
@@ -125,8 +125,6 @@ ApplicationWindow {
 
     StackView{
         id:sV
-        //height: 600
-        //width: 400
         anchors.fill: parent
         initialItem: inici
 
@@ -165,22 +163,6 @@ ApplicationWindow {
         Component{
             id:confPl
             ConfPl{
-                height: sV.height
-                width: sV.width
-            }
-        }
-
-        Component{
-            id:dadesF
-            DadesFanals{
-                height: sV.height
-                width: sV.width
-            }
-        }
-
-        Component{
-            id:carregarF
-            CarregarFanals{
                 height: sV.height
                 width: sV.width
             }

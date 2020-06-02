@@ -107,7 +107,6 @@ ConfFanalsForm {
         onClicked: {
             ut.desaConf(fTema.text,fMissatge.text)
             ut.desaFanals()
-            //cridar popup segons tfNom ple
             sV.push(dadesGr)
         }
     }

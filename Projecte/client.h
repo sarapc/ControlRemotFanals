@@ -5,6 +5,7 @@
 #include <QMqttClient>
 #include <QMqttSubscription>
 #include <QSslConfiguration>
+#include <QMqttTopicName>
 
 class Client;
 

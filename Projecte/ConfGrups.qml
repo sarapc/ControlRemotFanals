@@ -60,9 +60,7 @@ ConfGrupsForm {
         onClicked: {
             ut.setNomConf(tfNom.text)
             ut.esborrarGrEmpty()
-            if(tfNom.length==0){
-                //cridar popup
-            }else{
+            if(!tfNom.length==0){
                 ut.desaGrups()
                 sV.push(colors)
             }

@@ -12,7 +12,7 @@ ConfPlForm {
                 ut.afegirPos(m1.get(i).name, m1.get(i).eixX/sV.width, m1.get(i).eixY/sV.height)
             }
             ut.desaPl()
-            sV.push(dadesF)
+            sV.push(confFanals)
         }
     }
 

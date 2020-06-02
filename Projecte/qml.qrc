@@ -14,8 +14,6 @@
         <file>ConnexioForm.ui.qml</file>
         <file>Colors.qml</file>
         <file>ColorsForm.ui.qml</file>
-        <file>DadesFanals.qml</file>
-        <file>DadesFanalsForm.ui.qml</file>
         <file>DadesGrups.qml</file>
         <file>DadesGrupsForm.ui.qml</file>
         <file>DadesPl.qml</file>
@@ -24,8 +22,6 @@
         <file>CarregarPlForm.ui.qml</file>
         <file>ConfPl.qml</file>
         <file>ConfPlForm.ui.qml</file>
-        <file>CarregarFanals.qml</file>
-        <file>CarregarFanalsForm.ui.qml</file>
         <file>CarregarGrups.qml</file>
         <file>CarregarGrupsForm.ui.qml</file>
         <file>SelecGrup.qml</file>

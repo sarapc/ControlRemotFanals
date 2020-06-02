@@ -1,5 +1,4 @@
 #include "utilitat.h"
-#include <QDebug>
 
 Utilitat::Utilitat()
 {
@@ -45,8 +44,6 @@ int Utilitat::getNumPl(){
 }
 
 QString Utilitat::getAliasF(int i){
-    qDebug() << "Count fanals: "+QString::number(fanals.count());
-    qDebug() << "i: "+QString::number(i);
     Fanal f = fanals.at(i);
 
     return f.getAlias();
@@ -113,24 +110,14 @@ int Utilitat::getNumF(){
 }
 
 QString Utilitat::getTemaFG(int j){
-    qDebug() << grSel;
-    qDebug() << QString::number(j);
     Grup gr;
     for(int i = 0; i<grups.size(); i++){
         gr = grups.at(i);
         QString nomGr = gr.getNom();
-        qDebug()<<nomGr;
         if(nomGr==grSel){
-            qDebug() <<"entra";
-            qDebug() << QString::number(gr.Gfanals.count());
-            qDebug() << QString::number(j);
             QList<Fanal> llistaF = gr.Gfanals;
-            qDebug() << QString::number(llistaF.count());
-            //qDebug() << llistaF;
             Fanal f = llistaF.at(j);
-            qDebug() << "fanalOk";
             QString temaF = f.getTema();
-            qDebug() << temaF;
             return temaF;
         }
     }
@@ -243,9 +230,7 @@ void Utilitat::assignaPl(){
 void Utilitat::assignaFanals(){
     fanals = d.getFanals();
     for(int i = 0; i<fanals.size(); i++){
-        qDebug() << fanals.size();
         Fanal f = fanals.at(i);
-        qDebug() << f.getTema();
     }
 }
 

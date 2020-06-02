@@ -15,7 +15,6 @@ ColorsForm {
             var max = 254
             var min = 0
             for(var i = 0; i< ut.getNumPl(); i++){
-                //client.publish(ut.getTemaF(i), '{"R": "255", "G":"150", "B": "200", W:"0"}', "2", "0")
                 var r = Math.ceil(Math.random() * (max - min) + min)
                 var g = Math.ceil(Math.random() * (max - min) + min)
                 var b = Math.ceil(Math.random() * (max - min) + min)
@@ -38,8 +37,6 @@ ColorsForm {
                         client.publish(ut.getTemaFG(j), color[i], "2", "0")
                     }
                 }
-            }else{
-                //pop up has de tenir 6 fanals o 6 grups per aquest mode
             }
         }
     }
@@ -64,12 +61,9 @@ ColorsForm {
                             client.publish(ut.getTemaFG(j), color[(i+k)%6], "2", "0")
                         }
                     }
-                }else{
-                    //pop up has de tenir 6 fanals o 6 grups per aquest mode
                 }
             }
             for(var i = 0; i< ut.getNumPl(); i++){
-                //client.publish(ut.getTemaF(i), '{"R": "255", "G":"150", "B": "200", W:"0"}', "2", "0")
                 var r = Math.ceil(Math.random() * (max - min) + min)
                 var g = Math.ceil(Math.random() * (max - min) + min)
                 var b = Math.ceil(Math.random() * (max - min) + min)
@@ -95,8 +89,6 @@ ColorsForm {
                             client.publish(ut.getTemaFG(j), color[(i+k)%6], "2", "0")
                         }
                     }
-                }else{
-                    //pop up has de tenir 6 fanals o 6 grups per aquest mode
                 }
             }
 

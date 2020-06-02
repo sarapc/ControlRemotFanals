@@ -58,8 +58,6 @@ DISTFILES += \
     ConfigInicialForm.ui.qml \
     Connexio.qml \
     ConnexioForm.ui.qml \
-    DadesFanals.qml \
-    DadesFanalsForm.ui.qml \
     DadesGrups.qml \
     DadesGrupsForm.ui.qml \
     DadesPl.qml \

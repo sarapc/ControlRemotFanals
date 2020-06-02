@@ -1,6 +1,4 @@
 #include "client.h"
-#include <QDebug>
-#include <QMqttTopicName>
 
 Client::Client(QObject *parent)
     : QMqttClient(parent)

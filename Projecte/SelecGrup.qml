@@ -9,7 +9,6 @@ SelecGrupForm {
             lvGr.model.remove(i);
         }
         var num = ut.getNumG()
-        console.log("Numero de grups: "+num)
         for(i = 0; i<num; i++){
             lvGr.model.append({"name": ""+ut.getNomG(i)})
         }
@@ -125,7 +124,6 @@ SelecGrupForm {
     btDesa.onClicked: {
         var num = ut.getNumF()
         var JsonString = '{"R": "' + sRed.value.toString() + '", "G":"' + sGreen.value.toString() + '", "B":"'  + sBlue.value.toString()  + '", "W":"' + sAlpha.value.toString() + '"}'
-        //console.log("Numero de fanals: "+num)
         for(var i = 0; i< num; i++){
             client.publish(ut.getTemaFG(i), JsonString, "2", "0");
         }
